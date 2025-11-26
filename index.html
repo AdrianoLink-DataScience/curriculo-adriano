@@ -3,356 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo | Adriano Link - Foco em Dados & TI</title>
+    <title>Adriano Link | Analista de Dados</title>
     
-    <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Fonte Principal -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=K2D:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- ESTILOS GERAIS --- */
-        body {
-            font-family: 'K2D', 'Arial', sans-serif;
+        :root {
+            --primary-color: #2563eb; /* Azul Tech */
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
         }
+
         .container {
             max-width: 900px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #ffffff;
+            margin: 40px auto;
+            background: var(--white);
             border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
-        h1, h2, h3 {
-            color: #1a4a7d;
-            margin-top: 0;
-            font-weight: 600;
+
+        /* --- HEADER --- */
+        header {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
         }
+
         h1 {
             font-size: 2.5rem;
-            text-align: center;
+            font-weight: 700;
             margin-bottom: 10px;
         }
-        h2 {
-            font-size: 1.8rem;
-            border-bottom: 3px solid #1a4a7d;
-            padding-bottom: 8px;
-            margin-top: 30px;
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            font-weight: 300;
+            margin-bottom: 25px;
         }
-        h3 {
-            font-size: 1.3rem;
-            color: #0056b3;
-            font-weight: 500;
-        }
-        a {
-            color: #0056b3;
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
             text-decoration: none;
         }
-        a:hover {
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- SEÇÕES --- */
+        section {
+            padding: 30px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* --- PROJETOS (DESTAQUE) --- */
+        .project-card {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .tech-tags span {
+            background: var(--white);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            border: 1px solid var(--border);
+            margin-left: 5px;
+        }
+
+        .btn-repo {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-repo:hover {
             text-decoration: underline;
         }
 
-        /* --- CABEÇALHO (CONTATOS) --- */
-        .header {
-            text-align: center;
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #ddd;
-        }
-        .social-links {
-            margin-top: 15px;
-            margin-bottom: 20px;
-        }
-        .social-links a {
-            margin: 0 12px;
-            font-size: 1.8rem;
-            color: #333;
-            transition: color 0.3s ease;
-        }
-        .social-links a:hover {
-            color: #0056b3;
-        }
-        .contact-info p {
-            margin: 5px 0;
-            font-size: 1.1rem;
-        }
-        .contact-info .icon {
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-
-        /* --- SEÇÕES PRINCIPAIS --- */
-        section {
-            margin-bottom: 25px;
-        }
-        .section-content {
-            padding-left: 10px;
-        }
-
-        /* --- HABILIDADES --- */
+        /* --- SKILLS GRID --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
-        .skill-category {
-            background-color: #f9f9f9;
-            padding: 15px 20px;
-            border-radius: 8px;
-            border-left: 4px solid #1a4a7d;
-        }
-        .skill-category h3 {
-            margin-top: 0;
+
+        .skill-item h3 {
+            font-size: 1rem;
             margin-bottom: 10px;
-            font-size: 1.2rem;
+            color: var(--text-dark);
         }
-        .skill-category ul {
-            padding-left: 20px;
-            margin: 0;
+
+        .skill-list {
+            list-style: none;
         }
-        .skill-category li {
+
+        .skill-list li {
+            margin-bottom: 5px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .skill-list li i {
+            color: #10b981; /* Verde Check */
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+
+        /* --- EXPERIENCIA --- */
+        .job-item {
+            margin-bottom: 25px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 5px;
         }
 
-        /* --- PROJETOS DE DESTAQUE (NOVA SEÇÃO) --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        .project-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .project-card h3 {
-            margin-top: 0;
-        }
-        .project-card ul {
-            padding-left: 20px;
-        }
-        .project-card .project-link {
+        .job-title {
             font-weight: 600;
-            margin-top: 10px;
-            display: inline-block;
+            color: var(--text-dark);
         }
 
-        /* --- EXPERIÊNCIA E EDUCAÇÃO --- */
-        .entry {
-            margin-bottom: 20px;
+        .job-company {
+            color: var(--primary-color);
+            font-weight: 500;
         }
-        .entry h3 {
-            margin-bottom: 0;
+
+        .job-date {
+            font-size: 0.85rem;
+            color: #94a3b8;
         }
-        .entry .sub-header {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #555;
-            margin-bottom: 8px;
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            background: var(--bg-light);
         }
-        .entry ul {
-            margin-top: 5px;
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .container { margin: 0; border-radius: 0; }
+            .project-header { flex-direction: column; }
+            .tech-tags { margin-top: 5px; }
+            .contact-info { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
-        <header class="header">
+        <header>
             <h1>Adriano Cleber Link</h1>
+            <div class="subtitle">Analista de Dados | Python & SQL | Foco em Clean Code</div>
             
             <div class="social-links">
+                <a href="https://github.com/AdrianoLink-DataScience" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/adriano-link/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:adrianolink.datascience@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://api.whatsapp.com/send?phone=5547996430982" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://github.com/adrianolink-datascience" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <!-- Ícone do Threads não é padrão no Font Awesome, usei um genérico. Você pode trocar por 'fa-brands fa-threads' se estiver disponível -->
-                <a href="https://www.threads.com/@linkaddriano2024" target="_blank" title="Threads"><i class="fa-solid fa-at"></i></a>
             </div>
 
             <div class="contact-info">
-                <p>
-                    <span class="material-symbols-outlined icon">email</span>
-                    <a href="mailto:adrianolink.datascience@gmail.com">adrianolink.datascience@gmail.com</a>
-                </p>
-                <p>
-                    <span class="material-symbols-outlined icon">phone</span>
-                    <a href="tel:+5547996430982">(47) 99643-0982</a>
-                </p>
+                <span><i class="fas fa-map-marker-alt"></i> Itajaí, SC</span>
+                <span><i class="fas fa-phone"></i> (47) 99643-0982</span>
             </div>
         </header>
 
-        <main>
-            <!-- 
-                MELHORIA 1: Revisão do "Sobre mim" e "Objetivo".
-                Eles agora focam na TRANSIÇÃO e conectam a logística com dados.
-                O objetivo é específico (Dados/TI) e não genérico.
-            -->
-            <section class="about-objective">
-                <h2>Sobre mim</h2>
-                <p class="section-content">
-                    Profissional em transição para a área de Tecnologia e Dados, com uma base sólida em análise de processos adquirida na indústria de logística. Meu foco atual é aplicar minhas habilidades técnicas em Python, SQL e análise de dados (Pandas, Looker Studio) para resolver problemas de negócios, otimizar sistemas e transformar dados em insights estratégicos. Minha experiência operacional me deu uma visão prática sobre *onde* a tecnologia pode gerar maior impacto.
+        <section>
+            <h2><i class="fas fa-user-circle"></i> Sobre Mim</h2>
+            <p>
+                Profissional em transição de carreira, migrando de uma sólida base em <strong>Logística e Operações</strong> para a área de <strong>Dados</strong>. Minha experiência prévia me deu uma visão clara de como gargalos de processo impactam o negócio, e hoje uso <strong>Python, SQL e Estatística</strong> para resolver esses problemas.
+            </p>
+            <p>
+                Apaixonado por <strong>Clean Code</strong> e documentação técnica. Busco oportunidades como Analista de Dados onde eu possa aplicar engenharia de dados (ETL) e criação de dashboards para suporte à tomada de decisão.
+            </p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-code-branch"></i> Projetos em Destaque</h2>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-title">E-commerce Data Simulator & Analytics</span>
+                    <div class="tech-tags">
+                        <span>Python</span>
+                        <span>SQL Window Functions</span>
+                        <span>ETL</span>
+                    </div>
+                </div>
+                <p>
+                    Desenvolvimento de um pipeline completo de dados simulando um varejo real. Utilizei a biblioteca <strong>Faker</strong> para gerar dados com pesos demográficos reais, estruturei um banco <strong>SQLite</strong> e apliquei queries SQL avançadas (CTEs e Dense Rank) para identificar clientes VIP ("Whales").
                 </p>
+                <a href="https://github.com/AdrianoLink-DataScience/ecommerce-data-analytics" class="btn-repo" target="_blank">
+                    <i class="fab fa-github"></i> Ver código no GitHub
+                </a>
+            </div>
 
-                <h2>Objetivo</h2>
-                <p class="section-content">
-                    Atuar como Analista de TI ou Analista de Dados, utilizando minha formação em Banco de Dados e habilidades em Python e SQL para garantir a performance, segurança e disponibilidade dos sistemas de informação, ao mesmo tempo que contribuo para a análise e visualização de dados que suportem a tomada de decisão.
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-title">Music Recommendation System</span>
+                    <div class="tech-tags">
+                        <span>Machine Learning</span>
+                        <span>K-Means</span>
+                        <span>Pandas</span>
+                    </div>
+                </div>
+                <p>
+                    Aplicação de algoritmos de clusterização (K-Means) para agrupar músicas baseadas em características sonoras, criando um motor de recomendação personalizado. Foco em pré-processamento de dados e análise exploratória.
                 </p>
-            </section>
+                <a href="#" class="btn-repo" target="_blank">
+                    <i class="fab fa-github"></i> Ver código no GitHub
+                </a>
+            </div>
 
-            <section class="skills">
-                <h2>Habilidades Técnicas</h2>
-                <!-- 
-                    MELHORIA 2: Agrupamento das habilidades.
-                    Isso ajuda o recrutador a entender rapidamente seus diferentes conjuntos de competências.
-                -->
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Data Science & Analytics</h3>
-                        <ul>
-                            <li>Python (Pandas, NumPy)</li>
-                            <li>SQL (Bancos Relacionais & NoSQL)</li>
-                            <li>Análise e Manipulação de Dados</li>
-                            <li>Ferramentas de BI (Looker Studio)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Inteligência Artificial</h3>
-                        <ul>
-                            <li>Plataforma Hugging Face</li>
-                            <li>Processamento de Linguagem Natural (NLP)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>DevOps & Segurança</h3>
-                        <ul>
-                            <li>Gerenciamento de Containers (Docker)</li>
-                            <li>Testes de Penetração (Pentest)</li>
-                            <li>Segurança de Rede</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Desenvolvimento & Metodologias</h3>
-                        <ul>
-                            <li>Desenvolvimento Python</li>
-                            <li>Test-Driven Development (TDD)</li>
-                            <li>Aprendizado Contínuo e Autodesenvolvimento</li>
-                        </ul>
-                    </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-tools"></i> Stack Tecnológico</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Dados & Back-end</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Python (Pandas, Numpy)</li>
+                        <li><i class="fas fa-check"></i> SQL Avançado</li>
+                        <li><i class="fas fa-check"></i> Modelagem de Dados</li>
+                        <li><i class="fas fa-check"></i> SQLite / PostgreSQL</li>
+                    </ul>
                 </div>
-            </section>
-
-            <!-- 
-                MELHORIA 3: A MAIS IMPORTANTE.
-                Criação de uma seção de "Projetos" separada e detalhada.
-                Esta é a PROVA das suas habilidades.
-                
-                *** AÇÃO NECESSÁRIA: Substitua estes exemplos pelos seus projetos reais! ***
-                Mantenha a estrutura: Título, Descrição (o que fez) e Links.
-            -->
-            <section class="projects">
-                <h2>Projetos de Destaque</h2>
-                <div class="projects-grid">
-                    
-                    <div class="project-card">
-                        <h3>Projeto 1: Dashboard de Análise Logística (Python, SQL, Looker Studio)</h3>
-                        <p>
-                            Projeto acadêmico/pessoal focado na análise de KPIs de uma operação logística fictícia.
-                        </p>
-                        <ul>
-                            <li>Utilizei Python (Pandas) para limpar e processar um dataset de +100.000 linhas de dados de expedição.</li>
-                            <li>Estruturei os dados em um banco de dados SQL (PostgreSQL) para realizar consultas complexas de performance.</li>
-                            <li>Criei um dashboard interativo no Looker Studio para identificar rotas ineficientes e gargalos no tempo de *picking*.</li>
-                        </ul>
-                        <a href="https://github.com/SEU_LINK_AQUI" class="project-link" target="_blank">Ver no GitHub <i class="fab fa-github"></i></a>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Projeto 2: Classificador de Sentimentos (Python, Hugging Face)</h3>
-                        <p>
-                            Implementação de um modelo de NLP para classificar o sentimento de feedbacks de clientes.
-                        </p>
-                        <ul>
-                            <li>Utilizei um modelo pré-treinado (BERT) da plataforma Hugging Face.</li>
-                            <li>Desenvolvi scripts em Python para pré-processar o texto (tokenização, limpeza) e alimentar o modelo.</li>
-                            <li>Validei a acurácia do classificador em um conjunto de dados de teste.</li>
-                        </ul>
-                        <a href="https://huggingface.co/adrianoL" class="project-link" target="_blank">Ver no Hugging Face <i class="fa-solid fa-face-smile"></i></a>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Projeto 3: Containerização de Aplicação Web (Docker)</h3>
-                        <p>
-                            Criação de um ambiente padronizado para uma aplicação web simples em Python (Flask) usando Docker.
-                        </p>
-                        <ul>
-                            <li>Escrevi um `Dockerfile` para construir a imagem da aplicação, incluindo todas as dependências (pip).</li>
-                            <li>Configurei o `docker-compose` para orquestrar a aplicação e um banco de dados.</li>
-                            <li>Garanti a portabilidade da aplicação entre ambientes de desenvolvimento e produção.</li>
-                        </ul>
-                        <a href="https://github.com/SEU_LINK_AQUI" class="project-link" target="_blank">Ver no GitHub <i class="fab fa-github"></i></a>
-                    </div>
+                <div class="skill-item">
+                    <h3>DevOps & Ferramentas</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Git & GitHub</li>
+                        <li><i class="fas fa-check"></i> Docker (Básico)</li>
+                        <li><i class="fas fa-check"></i> WSL 2 (Linux)</li>
+                        <li><i class="fas fa-check"></i> VS Code & Jupyter</li>
+                    </ul>
                 </div>
-            </section>
-
-            <section class="experience">
-                <h2>Experiência Profissional</h2>
-                <div class="section-content">
-                    <div class="entry">
-                        <!-- 
-                            MELHORIA 4: Reenquadramento da Experiência.
-                            O cargo foi alterado para focar em "Análise".
-                            A descrição usa o método STAR (Situação/Tarefa/Ação/Resultado) e foca em DADOS, não em operação manual.
-                        -->
-                        <h3>Operador Logístico (Foco em Análise Operacional)</h3>
-                        <p class="sub-header">Multilog</p>
-                        <ul>
-                            <li>Liderei a análise de dados operacionais de inventário, utilizando Excel avançado para identificar e corrigir discrepâncias de estoque.</li>
-                            <li>Desenvolvi e automatizei relatórios de performance de recebimento e expedição, fornecendo à gestão uma visão clara dos gargalos operacionais.</li>
-                            <li>Apliquei pensamento analítico para otimizar o fluxo de armazenamento e propor melhorias no processo de *picking*, resultando em maior acuracidade.</li>
-                        </ul>
-                    </div>
+                <div class="skill-item">
+                    <h3>Soft Skills & Negócio</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Visão Analítica de Processos</li>
+                        <li><i class="fas fa-check"></i> Documentação Técnica</li>
+                        <li><i class="fas fa-check"></i> Metodologias Ágeis</li>
+                        <li><i class="fas fa-check"></i> Clean Code</li>
+                    </ul>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="education">
-                <h2>Educação & Certificações</h2>
-                <div class="section-content">
-                    <!-- 
-                        MELHORIA 5: Priorização e Limpeza.
-                        A formação em Banco de Dados é a mais importante.
-                        Itens de menor relevância (Ensino Médio, Técnico em Química) foram removidos
-                        para dar espaço à seção de PROJETOS, que é mais importante.
-                    -->
-                    <div class="entry">
-                        <h3>Superior em Banco de Dados</h3>
-                        <p class="sub-header">Uniasselvi (Cursando)</p>
-                        <p>
-                            Formação focada em projetar, desenvolver, implantar e gerenciar bases de dados. A grade inclui Modelagem Multidimensional, Data Warehouse, técnicas de programação, segurança de dados e administração de bancos (SQL e NoSQL).
-                        </p>
+        <section>
+            <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+            
+            <div class="job-item">
+                <div class="job-header">
+                    <div>
+                        <span class="job-title">Operador Logístico (Foco em Análise)</span>
+                        <div class="job-company">Multilog</div>
                     </div>
-
-                    <div class="entry">
-                        <h3>Formação em Análise de Dados</h3>
-                        <p class="sub-header">Alura</p>
-                        <ul>
-                            <li>Módulos completos em Python para Data Science, SQL, Estatística e técnicas de Visualização de Dados.</li>
-                            <li><a href="https://cursos.alura.com.br/user/adrianolink/fullCertificate/ad2167a8dad680a69c3eb7d26250f2f2" target="_blank">Ver Certificado</a></li>
-                        </ul>
-                    </div>
-
+                    <span class="job-date">Período Anterior</span>
                 </div>
-            </section>
-        </main>
+                <p>
+                    Embora o cargo fosse operacional, atuei como ponto focal para análise de inconsistências de estoque.
+                </p>
+                <ul class="skill-list">
+                    <li><i class="fas fa-angle-right"></i> Automatizei relatórios de divergência de inventário usando planilhas avançadas, reduzindo o tempo de conferência.</li>
+                    <li><i class="fas fa-angle-right"></i> Identifiquei padrões de erro no recebimento que impactavam o faturamento.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section style="border-bottom: none;">
+            <h2><i class="fas fa-graduation-cap"></i> Formação</h2>
+            
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Superior em Banco de Dados</span>
+                    <span class="job-date">Cursando</span>
+                </div>
+                <div class="job-company">Uniasselvi</div>
+                <p>Foco em modelagem relacional, SQL e administração de dados.</p>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Formação Data Science & Python</span>
+                    <span class="job-date">Concluído</span>
+                </div>
+                <div class="job-company">Alura</div>
+                <p>Bootcamps intensivos de Python, Estatística e Visualização de Dados.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Adriano Link. Desenvolvido com Clean Code.</p>
+            <p style="font-size: 0.7rem; margin-top: 5px;">Hospedado no GitHub Pages</p>
+        </footer>
     </div>
+
 </body>
 </html>
