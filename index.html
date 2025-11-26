@@ -13,7 +13,7 @@
 
     <style>
         :root {
-            --primary-color: #2563eb; /* Azul Tech */
+            --primary-color: #2563eb;
             --text-dark: #1e293b;
             --text-light: #64748b;
             --bg-light: #f8fafc;
@@ -21,225 +21,66 @@
             --border: #e2e8f0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        .container { max-width: 900px; margin: 40px auto; background: var(--white); border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); overflow: hidden; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+        /* HEADER */
+        header { background: var(--text-dark); color: var(--white); padding: 40px; text-align: center; }
+        h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
+        .subtitle { font-size: 1.2rem; color: #94a3b8; font-weight: 300; margin-bottom: 25px; }
+        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s; }
+        .social-links a:hover { color: var(--primary-color); }
+        .contact-info { margin-top: 20px; font-size: 0.9rem; color: #cbd5e1; display: flex; justify-content: center; gap: 20px; }
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
+        /* SEÇÕES */
+        section { padding: 30px 40px; border-bottom: 1px solid var(--border); }
+        h2 { color: var(--text-dark); font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        h2 i { color: var(--primary-color); font-size: 1.2rem; }
+        p { color: var(--text-light); margin-bottom: 15px; }
 
-        /* --- HEADER --- */
-        header {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 40px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            font-weight: 300;
-            margin-bottom: 25px;
-        }
-
-        .social-links a {
-            color: var(--white);
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: color 0.3s;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .contact-info {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #cbd5e1;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info span {
-            display: flex;
-            align-items: center;
+        /* PROJETOS */
+        .project-card { background: #f1f5f9; border-radius: 8px; padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--primary-color); transition: transform 0.2s; }
+        .project-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .project-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .project-title { font-weight: 700; color: var(--text-dark); font-size: 1.1rem; }
+        .tech-tags span { background: var(--white); padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; color: var(--primary-color); border: 1px solid var(--border); margin-left: 5px; }
+        
+        .btn-repo { 
+            display: inline-flex; 
+            align-items: center; 
             gap: 8px;
+            margin-top: 15px; 
+            font-size: 0.9rem; 
+            color: var(--white); 
+            background-color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600; 
+            text-decoration: none; 
+            transition: background 0.3s;
         }
-
-        /* --- SEÇÕES --- */
-        section {
-            padding: 30px 40px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        h2 {
-            color: var(--text-dark);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h2 i {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-
-        p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-
-        /* --- PROJETOS (DESTAQUE) --- */
-        .project-card {
-            background: #f1f5f9;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--primary-color);
-            transition: transform 0.2s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
-        }
-
-        .project-title {
-            font-weight: 700;
-            color: var(--text-dark);
-            font-size: 1.1rem;
-        }
-
-        .tech-tags span {
-            background: var(--white);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            border: 1px solid var(--border);
-            margin-left: 5px;
-        }
-
-        .btn-repo {
+        .btn-repo:hover { background-color: #1d4ed8; }
+        
+        .btn-secondary {
             display: inline-block;
             margin-top: 10px;
-            font-size: 0.85rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .btn-repo:hover {
-            text-decoration: underline;
-        }
-
-        /* --- SKILLS GRID --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-item h3 {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            margin-bottom: 5px;
+            font-size: 0.9rem;
             color: var(--text-light);
-            font-size: 0.95rem;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--text-light);
         }
+        .btn-secondary:hover { color: var(--primary-color); border-color: var(--primary-color); }
 
-        .skill-list li i {
-            color: #10b981; /* Verde Check */
-            margin-right: 8px;
-            font-size: 0.8rem;
-        }
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .skill-item h3 { font-size: 1rem; margin-bottom: 10px; color: var(--text-dark); }
+        .skill-list { list-style: none; }
+        .skill-list li { margin-bottom: 5px; color: var(--text-light); font-size: 0.95rem; }
+        .skill-list li i { color: #10b981; margin-right: 8px; font-size: 0.8rem; }
 
-        /* --- EXPERIENCIA --- */
-        .job-item {
-            margin-bottom: 25px;
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .job-title {
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .job-company {
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-
-        .job-date {
-            font-size: 0.85rem;
-            color: #94a3b8;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.8rem;
-            color: #94a3b8;
-            background: var(--bg-light);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 600px) {
-            .container { margin: 0; border-radius: 0; }
-            .project-header { flex-direction: column; }
-            .tech-tags { margin-top: 5px; }
-            .contact-info { flex-direction: column; gap: 10px; }
-        }
+        /* MOBILE */
+        @media (max-width: 600px) { .container { margin: 0; border-radius: 0; } .project-header { flex-direction: column; } .tech-tags { margin-top: 5px; } }
     </style>
 </head>
 <body>
@@ -265,10 +106,10 @@
         <section>
             <h2><i class="fas fa-user-circle"></i> Sobre Mim</h2>
             <p>
-                Profissional em transição de carreira, migrando de uma sólida base em <strong>Logística e Operações</strong> para a área de <strong>Dados</strong>. Minha experiência prévia me deu uma visão clara de como gargalos de processo impactam o negócio, e hoje uso <strong>Python, SQL e Estatística</strong> para resolver esses problemas.
+                Profissional em transição de carreira, migrando de uma sólida base em <strong>Logística e Operações</strong> para a área de <strong>Dados</strong>. Minha experiência prática me ensinou onde os gargalos de negócio se escondem, e hoje utilizo <strong>Python, SQL e Estatística</strong> para transformá-los em soluções mensuráveis.
             </p>
             <p>
-                Apaixonado por <strong>Clean Code</strong> e documentação técnica. Busco oportunidades como Analista de Dados onde eu possa aplicar engenharia de dados (ETL) e criação de dashboards para suporte à tomada de decisão.
+                Focado em entregar código limpo, documentado e reprodutível (Docker). Busco desafios onde possa aplicar engenharia de dados (ETL) e análise exploratória para gerar valor real ao negócio.
             </p>
         </section>
 
@@ -279,66 +120,46 @@
                 <div class="project-header">
                     <span class="project-title">E-commerce Data Simulator & Analytics</span>
                     <div class="tech-tags">
-                        <span>Python</span>
+                        <span>Python ETL</span>
                         <span>SQL Window Functions</span>
-                        <span>ETL</span>
+                        <span>Faker</span>
                     </div>
                 </div>
                 <p>
-                    Desenvolvimento de um pipeline completo de dados simulando um varejo real. Utilizei a biblioteca <strong>Faker</strong> para gerar dados com pesos demográficos reais, estruturei um banco <strong>SQLite</strong> e apliquei queries SQL avançadas (CTEs e Dense Rank) para identificar clientes VIP ("Whales").
+                    Simulador de varejo desenvolvido para superar a falta de dados complexos para estudo. Criei um gerador de dados sintéticos com <strong>pesos demográficos reais</strong> e apliquei SQL avançado (CTEs e Dense Rank) para segmentar clientes VIP ("Whales") e analisar padrões de compra por região.
                 </p>
+                
                 <a href="https://github.com/AdrianoLink-DataScience/ecommerce-data-analytics" class="btn-repo" target="_blank">
-                    <i class="fab fa-github"></i> Ver código no GitHub
+                    <i class="fab fa-github"></i> Ver Projeto Completo
                 </a>
             </div>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <span class="project-title">Music Recommendation System</span>
-                    <div class="tech-tags">
-                        <span>Machine Learning</span>
-                        <span>K-Means</span>
-                        <span>Pandas</span>
-                    </div>
-                </div>
-                <p>
-                    Aplicação de algoritmos de clusterização (K-Means) para agrupar músicas baseadas em características sonoras, criando um motor de recomendação personalizado. Foco em pré-processamento de dados e análise exploratória.
-                </p>
-                <a href="#" class="btn-repo" target="_blank">
-                    <i class="fab fa-github"></i> Ver código no GitHub
+            <div style="text-align: center; margin-top: 10px;">
+                <a href="https://github.com/AdrianoLink-DataScience?tab=repositories" class="btn-secondary" target="_blank">
+                    Ver outros repositórios no GitHub <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-
         </section>
 
         <section>
             <h2><i class="fas fa-tools"></i> Stack Tecnológico</h2>
             <div class="skills-grid">
                 <div class="skill-item">
-                    <h3>Dados & Back-end</h3>
+                    <h3>Análise de Dados</h3>
                     <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> Python (Pandas, Numpy)</li>
-                        <li><i class="fas fa-check"></i> SQL Avançado</li>
+                        <li><i class="fas fa-check"></i> Python (Pandas, Numpy, Seaborn)</li>
+                        <li><i class="fas fa-check"></i> SQL (Window Functions, CTEs)</li>
                         <li><i class="fas fa-check"></i> Modelagem de Dados</li>
-                        <li><i class="fas fa-check"></i> SQLite / PostgreSQL</li>
+                        <li><i class="fas fa-check"></i> ETL & Limpeza de Dados</li>
                     </ul>
                 </div>
                 <div class="skill-item">
-                    <h3>DevOps & Ferramentas</h3>
+                    <h3>Engenharia & Ferramentas</h3>
                     <ul class="skill-list">
                         <li><i class="fas fa-check"></i> Git & GitHub</li>
-                        <li><i class="fas fa-check"></i> Docker (Básico)</li>
+                        <li><i class="fas fa-check"></i> Docker (Ambientes Reprodutíveis)</li>
                         <li><i class="fas fa-check"></i> WSL 2 (Linux)</li>
-                        <li><i class="fas fa-check"></i> VS Code & Jupyter</li>
-                    </ul>
-                </div>
-                <div class="skill-item">
-                    <h3>Soft Skills & Negócio</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-check"></i> Visão Analítica de Processos</li>
-                        <li><i class="fas fa-check"></i> Documentação Técnica</li>
-                        <li><i class="fas fa-check"></i> Metodologias Ágeis</li>
-                        <li><i class="fas fa-check"></i> Clean Code</li>
+                        <li><i class="fas fa-check"></i> VS Code & Jupyter Lab</li>
                     </ul>
                 </div>
             </div>
@@ -346,50 +167,31 @@
 
         <section>
             <h2><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
-            
-            <div class="job-item">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Operador Logístico (Foco em Análise)</span>
-                        <div class="job-company">Multilog</div>
-                    </div>
-                    <span class="job-date">Período Anterior</span>
+            <div class="project-card" style="background: #fff; border-left: 4px solid #94a3b8;">
+                <div class="project-header">
+                    <span class="project-title">Operador Logístico (Foco em Análise)</span>
+                    <span style="color: var(--primary-color); font-weight: 600;">Multilog</span>
                 </div>
                 <p>
-                    Embora o cargo fosse operacional, atuei como ponto focal para análise de inconsistências de estoque.
+                    Embora o cargo fosse operacional, atuei como analista de inconsistências de estoque. Automatizei relatórios de divergência usando planilhas avançadas e identifiquei padrões de erro no recebimento, otimizando o fluxo de conferência.
                 </p>
-                <ul class="skill-list">
-                    <li><i class="fas fa-angle-right"></i> Automatizei relatórios de divergência de inventário usando planilhas avançadas, reduzindo o tempo de conferência.</li>
-                    <li><i class="fas fa-angle-right"></i> Identifiquei padrões de erro no recebimento que impactavam o faturamento.</li>
-                </ul>
             </div>
         </section>
 
         <section style="border-bottom: none;">
             <h2><i class="fas fa-graduation-cap"></i> Formação</h2>
-            
-            <div class="job-item">
-                <div class="job-header">
-                    <span class="job-title">Superior em Banco de Dados</span>
-                    <span class="job-date">Cursando</span>
-                </div>
-                <div class="job-company">Uniasselvi</div>
-                <p>Foco em modelagem relacional, SQL e administração de dados.</p>
+            <div style="margin-bottom: 15px;">
+                <strong>Superior em Banco de Dados</strong> | Uniasselvi (Cursando)<br>
+                <span style="font-size: 0.9rem; color: var(--text-light);">Foco em modelagem relacional, SQL e administração de dados.</span>
             </div>
-
-            <div class="job-item">
-                <div class="job-header">
-                    <span class="job-title">Formação Data Science & Python</span>
-                    <span class="job-date">Concluído</span>
-                </div>
-                <div class="job-company">Alura</div>
-                <p>Bootcamps intensivos de Python, Estatística e Visualização de Dados.</p>
+            <div>
+                <strong>Formação Data Science & Python</strong> | Alura (Concluído)<br>
+                <span style="font-size: 0.9rem; color: var(--text-light);">Bootcamps intensivos de Python, Estatística e Visualização.</span>
             </div>
         </section>
 
         <footer>
             <p>&copy; 2025 Adriano Link. Desenvolvido com Clean Code.</p>
-            <p style="font-size: 0.7rem; margin-top: 5px;">Hospedado no GitHub Pages</p>
         </footer>
     </div>
 
