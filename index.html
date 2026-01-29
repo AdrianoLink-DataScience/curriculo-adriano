@@ -19,6 +19,7 @@
             --bg-light: #f8fafc;
             --white: #ffffff;
             --border: #e2e8f0;
+            --modal-bg: rgba(0, 0, 0, 0.85);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,8 +80,140 @@
         .skill-list li { margin-bottom: 5px; color: var(--text-light); font-size: 0.95rem; }
         .skill-list li i { color: #10b981; margin-right: 8px; font-size: 0.8rem; }
 
+        /* --- NOVA SEÇÃO CSS: CERTIFICADOS & MODAL --- */
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .cert-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        /* A imagem thumbnail */
+        .cert-thumbnail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+            object-position: top center; /* Foca no topo do certificado */
+            border-bottom: 1px solid var(--border);
+            cursor: zoom-in;
+            transition: opacity 0.2s;
+        }
+        
+        .cert-thumbnail:hover {
+            opacity: 0.9;
+        }
+
+        .cert-info {
+            padding: 15px;
+        }
+
+        .cert-info h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .cert-info p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Estilos do Modal (Zoom) */
+        .modal {
+            display: none; /* Escondido por padrão */
+            position: fixed; 
+            z-index: 1000; 
+            padding-top: 50px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: var(--modal-bg);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation-name: zoom;
+            animation-duration: 0.3s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0.8); opacity: 0;}
+            to {transform:scale(1); opacity: 1;}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* --- FIM DO CSS NOVO --- */
+
+
         /* MOBILE */
-        @media (max-width: 600px) { .container { margin: 0; border-radius: 0; } .project-header { flex-direction: column; } .tech-tags { margin-top: 5px; } }
+        @media (max-width: 600px) { 
+            .container { margin: 0; border-radius: 0; } 
+            .project-header { flex-direction: column; } 
+            .tech-tags { margin-top: 5px; } 
+            .contact-info { flex-direction: column; gap: 10px; }
+            .modal-content { width: 95%; }
+        }
     </style>
 </head>
 <body>
@@ -178,8 +311,8 @@
             </div>
         </section>
 
-        <section style="border-bottom: none;">
-            <h2><i class="fas fa-graduation-cap"></i> Formação</h2>
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
             <div style="margin-bottom: 15px;">
                 <strong>Superior em Banco de Dados</strong> | Uniasselvi (Cursando)<br>
                 <span style="font-size: 0.9rem; color: var(--text-light);">Foco em modelagem relacional, SQL e administração de dados.</span>
@@ -190,10 +323,88 @@
             </div>
         </section>
 
+        <section style="border-bottom: none;">
+            <h2><i class="fas fa-certificate"></i> Certificações Profissionais</h2>
+            
+            <div class="cert-grid">
+                
+                <div class="cert-card">
+                    <img src="image_1.png" alt="Certificado Big Data ENAP" class="cert-thumbnail" data-caption="Big Data em Apoio à Tomada de Decisão - ENAP (2025)">
+                    <div class="cert-info">
+                        <h3>Big Data em Apoio à Tomada de Decisão</h3>
+                        <p><i class="fas fa-university"></i> ENAP | 2025</p>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <img src="image_2.png" alt="Certificado Google Technical Support" class="cert-thumbnail" data-caption="Technical Support Fundamentals - Google/Coursera (2025)">
+                    <div class="cert-info">
+                        <h3>Technical Support Fundamentals</h3>
+                        <p><i class="fab fa-google"></i> Google | 2025</p>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <img src="image_3.png" alt="Certificado Google Networking" class="cert-thumbnail" data-caption="The Bits and Bytes of Computer Networking - Google/Coursera (2025)">
+                    <div class="cert-info">
+                        <h3>The Bits and Bytes of Computer Networking</h3>
+                        <p><i class="fab fa-google"></i> Google | 2025</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <footer style="text-align: center; padding: 20px; font-size: 0.8rem; color: #94a3b8; background: var(--bg-light);">
             <p>&copy; 2025 Adriano Link. Desenvolvido com Clean Code.</p>
         </footer>
     </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        // Pega os elementos do DOM
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("img01");
+        const captionText = document.getElementById("caption");
+        const closeBtn = document.getElementsByClassName("close-modal")[0];
+        
+        // Pega todas as imagens com a classe 'cert-thumbnail'
+        const thumbnails = document.querySelectorAll('.cert-thumbnail');
+
+        // Adiciona o evento de clique em cada miniatura
+        thumbnails.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                // Usa o atributo data-caption para a legenda, ou o alt se não houver caption
+                captionText.innerHTML = this.getAttribute('data-caption') || this.alt;
+                // Desabilita o scroll do corpo da página quando o modal está aberto
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        // Função para fechar o modal
+        function closeModal() {
+            modal.style.display = "none";
+            // Reabilita o scroll da página
+            document.body.style.overflow = "auto";
+        }
+
+        // Fecha ao clicar no X
+        closeBtn.addEventListener('click', closeModal);
+
+        // Fecha ao clicar fora da imagem (no fundo escuro)
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
